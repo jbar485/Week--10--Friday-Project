@@ -71,5 +71,5 @@ class Volunteer
     Project.find(@project_id)
   end
 
-  
+
 end
