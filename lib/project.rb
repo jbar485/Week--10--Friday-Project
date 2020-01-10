@@ -55,7 +55,7 @@ class Project
     Project.all.sort_by{ |project| project.title }
   end
 
-  def self.clear
+  def self.destroy
     DB.exec("DELETE FROM projects *;")
   end
 
