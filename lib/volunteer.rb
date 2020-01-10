@@ -47,8 +47,10 @@ class Volunteer
   end
 
   def update(name, project_id)
-    @name = name
-    @project_id = project_id
+    if name != ""
+      @name = name
+      @project_id = project_id
+    end
     DB.exec("UPDATE volunteers SET name = '#{@name}', project_id = #{@project_id} WHERE id = #{@id};")
   end
 
