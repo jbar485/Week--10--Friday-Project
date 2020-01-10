@@ -73,4 +73,27 @@ describe Volunteer do
     end
   end
 
+  context '#delete' do
+    it 'allows a user to delete all volunteers on a project' do
+      project1 = Project.new({:title => 'zoo with friends', :id => nil})
+      project1.save
+      volunteer = Volunteer.new({:name => 'Jane', :project_id => project1.id, :id => nil})
+      volunteer.save
+      project1.delete
+      expect(Volunteer.find(volunteer.id)).to eq nil
+    end
+  end
+
+  context '.find_by_project' do
+    it 'finds volunteers for a project' do
+      project = Project.new({:title => 'zoo with friends', :id => nil})
+      project.save
+      volunteer = Volunteer.new({:name => 'Jane', :project_id => project.id, :id => nil})
+      volunteer.save
+      volunteer2 = Volunteer.new({:name => 'Joe', :project_id => 1, :id => nil})
+      volunteer2.save
+      expect(Volunteer.find_by_project(project.id)).to eq [volunteer]
+    end
+  end
+
 end
