@@ -39,5 +39,11 @@ class Project
     Project.new({:id => id, :title => title})
   end
 
+  def update(title)
+    if title != ""
+      @title = title
+    end
+    DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
+  end
 
 end
