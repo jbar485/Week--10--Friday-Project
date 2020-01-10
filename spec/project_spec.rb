@@ -81,13 +81,23 @@ describe Project do
       expect(project.title).to eq 'Teaching Ruby to Kids'
     end
   end
-  #
-  # context '#delete' do
-  #   it 'allows a user to delete a project' do
-  #     project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-  #     project.save
-  #     project.delete
-  #     expect(Project.all).to eq []
-  #   end
-  # end
+
+  context '#delete' do
+    it 'allows a user to delete a project' do
+      project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+      project.save
+      project.delete
+      expect(Project.all).to eq []
+    end
+  end
+
+  describe '.sorted' do
+    it 'sorts projects in alphabetical order' do
+      project1 = Project.new({:title => 'zoo with friends', :id => nil})
+      project1.save
+      project2 = Project.new({:title => 'Teaching Ruby to Kids', :id => nil})
+      project2.save
+      expect(Project.sorted()).to eq ([project2, project1])
+    end
+  end
 end
