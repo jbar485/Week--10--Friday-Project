@@ -8,5 +8,11 @@ class Project
     @title = attributes.fetch(:title)
   end
 
-  
+  def ==(other_project)
+    if self.title.eql?(other_project.title)
+      true
+    else
+      false
+    end
+  end
 end
