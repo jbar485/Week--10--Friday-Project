@@ -1,9 +1,9 @@
 require('sinatra')
 require('sinatra/reloader')
-require('./lib/book')
-require('./lib/author')
+require('./lib/project')
+require('./lib/volunteer')
 require('pry')
 require("pg")
-require('./lib/patron')
 
+DB = PG.connect({:dbname => "volunteer_tracker"})
 also_reload('lib/**/*.rb')
