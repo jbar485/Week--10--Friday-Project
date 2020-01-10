@@ -3,11 +3,19 @@
 <% if @projects.any? %>
 <ul>
   <% @projects.each do |project| %>
-  <li><a href="/projects/<%= project.id %>"> <%= project.name %></a></li>
+  <li><a href="/projects/<%= project.id %>"> <%= project.title %></a></li>
   <% end %>
 </ul>
 <% else %>
 <p>You currently have no projects.</p>
 <% end %>
-<a href="/projects/new">New Project</a>
+<form action="/projects/new" method="get">
+  <input class="form-control" type="hidden">
+  <button id="new_project" type="submit" class="btn">New</button>
+</form>
 <br>
+
+<form action="/projects/destroy" method="get">
+  <input class="form-control" type="hidden">
+  <button id="destroy" type="submit" class="btn">DESTROY EVERYTHING</button>
+</form>

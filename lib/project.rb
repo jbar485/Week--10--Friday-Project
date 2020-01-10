@@ -55,6 +55,10 @@ class Project
     Project.all.sort_by{ |project| project.title }
   end
 
+  def self.clear
+    DB.exec("DELETE FROM projects *;")
+  end
+
   def volunteers
     Volunteer.find_by_project(self.id)
   end
