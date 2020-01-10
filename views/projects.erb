@@ -1,3 +1,12 @@
+<h3>Search Projects</h3>
+<form action="/projects" method="get">
+  <div class="form-group">
+    <label for="search">Search</label>
+    <input id="search" name="search" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn">Search</button>
+</form>
+
 <h3>Projects:</h3>
 
 <% if @projects.any? %>
@@ -18,4 +27,9 @@
 <form action="/projects/destroy" method="get">
   <input class="form-control" type="hidden">
   <button id="destroy" type="submit" class="btn">DESTROY EVERYTHING</button>
+</form>
+
+<form action="/" method="get">
+  <input class="form-control" type="hidden">
+  <button id="return_to_project" type="submit" class="btn">Home</button>
 </form>

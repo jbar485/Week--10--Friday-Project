@@ -59,6 +59,10 @@ class Project
     DB.exec("DELETE FROM projects *;")
   end
 
+  def self.search(query)
+    Project.sorted.select { |project| project.title.match?(/(#{query})/i)}
+  end
+
   def volunteers
     Volunteer.find_by_project(self.id)
   end

@@ -12,8 +12,12 @@ get("/") do
   erb(:main_page)
 end
 
-get("/projects") do
-  @projects = Project.sorted
+get('/projects') do
+  if params[:search]
+    @projects = Project.search(params[:search])
+  else
+    @projects = Project.sorted
+  end
   erb(:projects)
 end
 
@@ -47,6 +51,12 @@ end
 patch("/projects/:id") do
   @project = Project.find(params[:id].to_i())
   @project.update(params[:project_title])
+  redirect to('/projects')
+end
+
+delete("/projects/:id") do
+  @project = Project.find(params[:id].to_i())
+  @project.delete()
   redirect to('/projects')
 end
 
