@@ -108,6 +108,7 @@ ALTER TABLE ONLY public.volunteers ALTER COLUMN id SET DEFAULT nextval('public.v
 --
 
 COPY public.projects (id, title) FROM stdin;
+591	South Ridge Elementary School
 \.
 
 
@@ -116,6 +117,7 @@ COPY public.projects (id, title) FROM stdin;
 --
 
 COPY public.volunteers (id, name, project_id) FROM stdin;
+416	Judah N Barton	591
 \.
 
 
@@ -123,14 +125,14 @@ COPY public.volunteers (id, name, project_id) FROM stdin;
 -- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jbar485
 --
 
-SELECT pg_catalog.setval('public.projects_id_seq', 6, true);
+SELECT pg_catalog.setval('public.projects_id_seq', 591, true);
 
 
 --
 -- Name: volunteers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jbar485
 --
 
-SELECT pg_catalog.setval('public.volunteers_id_seq', 1, false);
+SELECT pg_catalog.setval('public.volunteers_id_seq', 416, true);
 
 
 --
