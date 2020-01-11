@@ -1,20 +1,17 @@
 <h3>Search Projects</h3>
 <form action="/projects" method="get">
   <div class="form-group">
-    <label for="search">Search</label>
     <input id="search" name="search" class="form-control" type="text">
   </div>
   <button type="submit" class="btn">Search</button>
 </form>
 
-<h3>Projects:</h3>
+<h3>Projects</h3>
 
 <% if @projects.any? %>
-<ul>
   <% @projects.each do |project| %>
-  <li><a href="/projects/<%= project.id %>"> <%= project.title %></a></li>
+  <p><a href="/projects/<%= project.id %>"> <%= project.title %></a></p>
   <% end %>
-</ul>
 <% else %>
 <p>You currently have no projects.</p>
 <% end %>

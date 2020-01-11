@@ -4,7 +4,7 @@
 <h4>Volunteers</h4>
 <ul>
   <% @project.volunteers.each do |volunteer| %>
-  <li><a href="/projects/<%= @project.id %>/volunteers/<%= volunteer.id %>"><%= volunteer.name %></a></li>
+  <p><a href="/projects/<%= @project.id %>/volunteers/<%= volunteer.id %>"><%=volunteer.name%></a></p>
   <% end %>
 </ul>
 <% else %>
@@ -15,8 +15,7 @@
 
 <form action="/projects/<%=@project.id %>/volunteers" method = "post">
   <div class="form-group">
-    <label for="volunteer_name">Volunteer:</label>
-    <input id="volunteer_name" name="volunteer_name" class="form-control" type="text">
+    <input id="search" name="volunteer_name" class="form-control" type="text">
   </div>
   <button type="submit" class="btn">Add volunteer</button>
 </form>
